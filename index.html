@@ -19,6 +19,7 @@
             <nav class="hidden md:flex space-x-6 text-sm font-semibold">
                 <a href="#oferta" class="hover:text-sky-400 transition">Fibra</a>
                 <a href="#beneficios" class="hover:text-sky-400 transition">Beneficios</a>
+                <a href="#registros" class="hover:text-sky-400 transition">Mis Solicitudes</a>
             </nav>
             <button onclick="toggleModal(true)" class="bg-sky-500 hover:bg-sky-600 text-white font-bold px-5 py-2 rounded-full shadow-lg transition transform hover:scale-105">
                 Quiero contratar
@@ -52,9 +53,9 @@
                     </button>
                 </div>
             </div>
-            <div class="relative flex justify-center">
-                <img src="router.jpg" alt="Router Movistar Fibra" class="rounded-2xl shadow-2xl border-4 border-sky-500/30 object-contain bg-sky-950/40 p-4 h-[400px] w-full max-w-lg">
-            </div>
+            <div class="relative">
+    <img src="router-movistar.jpg.jpg" alt="Router Movistar Fibra" class="rounded-2xl shadow-2xl border-4 border-sky-500/30 object-contain bg-sky-950/40 p-4 h-[400px] w-full">
+</div>
         </div>
     </section>
 
@@ -86,6 +87,7 @@
         </div>
     </section>
 
+
     <!-- Modal de Contratación / Registro -->
     <div id="contractModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative transform transition-all">
@@ -96,35 +98,30 @@
             <div class="text-center mb-6">
                 <span class="text-2xl font-black text-blue-900 tracking-wider">Movistar</span>
                 <h3 class="text-xl font-bold text-slate-800 mt-2">Contratar Fibra 800 Mbps</h3>
-                <p class="text-xs text-slate-500 mt-1">Completa tus datos para validar la factibilidad técnica y agendar instalación.</p>
+                <p class="text-xs text-slate-500 mt-1">Déjanos tus datos de contacto para que podamos comunicarnos contigo sobre la factibilidad del servicio.</p>
             </div>
 
-            <!-- Formulario conectado a Web3Forms para envío directo a correo -->
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                
-                <!-- REEMPLAZA "TU-ACCESS-KEY-AQUI" CON LA CLAVE QUE TE LLEGÓ AL CORREO -->
-                <input type="hidden" name="access_key" value="TU-ACCESS-KEY-AQUI">
-
+            <form action="https://formsubmit.co/electricidad.morales2030@gmail.com" method="POST" class="space-y-4">
+                <input type="hidden" name="_subject" value="Nueva solicitud de contacto - Fibra óptica">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="true">
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Correo Electrónico</label>
-                    <input type="email" name="email" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm" placeholder="tucorreo@ejemplo.com">
+                    <input type="email" id="email" name="correo_cliente" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm" placeholder="tucorreo@ejemplo.com">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Número de Teléfono</label>
-                    <input type="tel" name="telefono" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm" placeholder="+56 9 1234 5678">
+                    <input type="tel" id="telefono" name="telefono_cliente" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm" placeholder="+56 9 1234 5678">
                 </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Contraseña (Verificación)</label>
-                    <input type="password" name="password" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm" placeholder="••••••••">
-                </div>
+                <p class="text-xs text-slate-500">Usa este formulario solo para datos de contacto. Nunca ingreses contraseñas. Al enviar, tus datos se remitirán al correo configurado por el administrador de esta página.</p>
                 <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
-                    Confirmar Solicitud
+                    Enviar solicitud de contacto
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Script de Lógica del Modal -->
+    <!-- Script de apertura y cierre del formulario -->
     <script>
         function toggleModal(show) {
             const modal = document.getElementById('contractModal');
